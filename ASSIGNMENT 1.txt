@@ -1,3 +1,27 @@
+// Creating a Search interface (Search.java)
+import java.rmi.*;
+public interface Search extends Remote  {
+public String query(String search) throws
+RemoteException;
+}
+
+// Java program to implement the Search interface (SearchQuery.java)
+import java.rmi.*;
+import java.rmi.server.*;
+public class SearchQuery extends RemoteObject
+implements Search
+{
+public String query(String search)
+throws RemoteException
+{	
+String result;
+if (search.equals("Reflection in Java"))
+result = "Found";
+else
+result = "Not Found";
+return result; } }
+
+
 // A Java program for a Client
 import java.io.*;
 import java.net.*;
